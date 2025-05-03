@@ -20,7 +20,7 @@ const addEnroll=async(req,res)=>{
 
 const getEnroll=async(req,res)=>{
     try{
-        const enroll=await enrollModel.findById(req.params.id)
+        const enroll=await enrollModel.findById(req.params.id).populate('courseId','course teacher').populate('studentId','student')
     res.status(200).json({
         message:'retrieved successfully',
         enroll
