@@ -11,4 +11,4 @@ const courseSchema= new mongodb.Schema({
     }
 })
 
-module.exports= mongodb.model('Course',courseSchema);
+module.exports= mongodb.model('course',courseSchema);
