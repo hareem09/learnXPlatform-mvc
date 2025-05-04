@@ -20,7 +20,7 @@ const addProgress=async(req,res)=>{
 
 const getProgress=async(req,res)=>{
     try{
-        const progress=await progressModel.findById(req.params.id)
+        const progress=await progressModel.findById(req.params.id).populate('classId','title description quiz').populate('studentId','student')
     res.status(200).json({
         message:'retrieved successfully',
         progress
