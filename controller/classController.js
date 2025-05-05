@@ -18,6 +18,22 @@ const addContent=async(req,res)=>{
     }
 }
 
+const getContent=async(req,res)=>{
+    try{
+        const content=await classModel.findById(req.params.id)
+        res.status(200).json({
+            message:'course fetched successfully',
+            content
+        })
+    }
+    catch(err)
+    {
+        res.status(500).json({
+            message:'failed to fetch',
+            error:err.message
+        })
+    }
+}
 const updateContent=async(req,res)=>{
     try{
         const content=await classModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
@@ -35,7 +51,25 @@ const updateContent=async(req,res)=>{
             })
         }
     }
+    const deleteContent=async(req,res)=>{
+        try{
+            const content=await classModel.findByIdAndDelete(req.params.id)
+            res.status(200).json({
+                message:'course deleted successfully',
+                content
+            })
+        }
+        catch(err)
+        {
+            res.status(500).json({
+                message:'failed to delete',
+                error:err.message
+            })
+        }
+    }
 module.exports={
     addContent,
-    updateContent
+    getContent,
+    updateContent,
+    deleteContent
 }
