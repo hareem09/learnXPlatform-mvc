@@ -1,5 +1,6 @@
 const express=require('express')
 const app= express()
+const mongodb=require('./dbs')
 
 //classContent
 const classModel=require('./model/classSchema')
