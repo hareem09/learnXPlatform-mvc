@@ -15,7 +15,9 @@ const progressSchema= new mongodb.Schema({
     status:{
         type:String,
         enum:['completed','incomplete'],
-        default:'completed'
+        default:'completed',
+        required:true,
+        timestamp:true
     }
 })
 module.exports=mongodb.model('progress',progressSchema)
