@@ -1,28 +1,27 @@
 const express=require('express')
 const app= express()
-const mongodb=require('mongoose')
+
 //classContent
 const classModel=require('./model/classSchema')
-const classRouter=require('./routes/class')
+const classRouter=require('./routes/classRoutes')
 //Course
 const courseModel=require('./model/courseSchema')
-const courseRouter=require('./routes/course')
+const courseRouter=require('./routes/courseRoutes')
 //Enrollment
 const enrollModel=require('./model/enrollSchema')
-const enrollRouter=require('./routes/enroll')
+const enrollRouter=require('./routes/enrollRoutes')
 //Progress
 const progressModel=require('./model/progressSchema')
-const progressRouter=require('./routes/progress')
+const progressRouter=require('./routes/progressRoutes')
 //Student
-const studentModel=require('./model/studentSchema')
-const studentRouter=require('./routes/student')
+const userModel=require('./model/userSchema')
+const userRouter=require('./routes/userRoutes')
 
 app.use(express.json())
 
-mongodb.connect('mongodb://localhost:27017/learnXPlatform')
 const port=3000
 
-app.use('/student',studentRouter)
+app.use('/student',userRouter)
 
 app.use('/progress',progressRouter)
 
