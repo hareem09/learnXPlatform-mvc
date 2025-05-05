@@ -1,13 +1,20 @@
 const mongodb=require('mongoose');
 
 const courseSchema= new mongodb.Schema({
-    course:{
+     course:{
         type:String,
-        required: true
+        required: true,
+        timestamp:true
     },
     teacher:{
         type:String,
-        required: true
+        required: true,
+        timestamp:true
+    },
+    userId:{
+        type:mongodb.Schema.Types.ObjectId,
+        ref:'student',
+        required:true   
     }
 })
 
