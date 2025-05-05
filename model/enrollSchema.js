@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // mongoose.connect('mongoose://localhost:27017/data')
 const enrollSchema= new mongoose.Schema({
-    course:{
+    courseId:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'course',
         required: true
